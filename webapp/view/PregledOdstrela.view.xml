@@ -1,0 +1,90 @@
+<mvc:View
+   controllerName="sap.ui.demo.wt.controller.PregledOdstrela"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:core="sap.ui.core">
+    <Page id="DomovPage">
+        <customHeader>
+            <Bar id="bar">
+                <contentLeft>
+                     <Button press="onNavBack" icon="sap-icon://nav-back"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text id="ldTitle" class="mainTitle"/>
+                </contentMiddle>
+                <contentRight>
+                    <Image class="imageMargin" src="/images/Logo.png"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <subHeader>
+            <Bar>
+                <contentMiddle>
+                    <Button id="prvaStran" width="130px" text="Prva stran" type="Ghost" press="onNav"/>
+                    <Button id="domov" width="130px" text="Domov" type="Ghost" press="onNav"/>
+                    <Button id="naLov" width="130px" text="Na lov" type="Ghost" press="onNav"/>
+                    <Button id="nadzornaPlosca" width="130px" text="Nadzorna plošča" type="Ghost" press="onNav"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://log" text="Odjava" type="Ghost" press="onLogOut"/>
+                </contentRight>
+            </Bar>
+        </subHeader>
+        <content>
+            <Table id="pregledOdstrela"
+                inset="false"
+                items="{
+                    path: '/PregledOdstrela',
+                    sorter: {
+                        path: 'divjad'
+                    }
+                }">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="Pregled odstrela" level="H2"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Divjad" />
+                    </Column>
+                    <Column>
+                        <Text text="Planiran odstrel" />
+                    </Column>
+                    <Column>
+                        <Text text="Izvršen odstrel" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text
+                                text="{divjad}"/>
+                            <Text
+                                text="{planiran_odstrel}" />
+                            <Text
+                                text="{izvrsen_odstrel}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <!--<OverflowToolbar id="footer">
+                <ToolbarSpacer/>
+                <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>-->
+            <Bar id="footer">
+                <contentLeft>
+                    <Button icon="sap-icon://log" type="Ghost" press="onLogOut"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                </contentMiddle>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,115 @@
+<mvc:View
+    controllerName="sap.ui.demo.wt.controller.NadzornaPlosca"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+	xmlns="sap.m">
+    <Page id="NadzornaPloscaPage">
+        <customHeader>
+            <Bar id="bar">
+                <contentLeft>
+                     <Button press="onNavBack" icon="sap-icon://nav-back"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text id="ldTitle" class="mainTitle"/>
+                </contentMiddle>
+                <contentRight>
+                    <Image class="imageMargin" src="/images/Logo.png"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <subHeader>
+            <Bar>
+                <contentMiddle>
+                    <Button id="prvaStran" width="130px" text="Prva stran" type="Ghost" press="onNav"/>
+                    <Button id="domov" width="130px" text="Domov" type="Ghost" press="onNav"/>
+                    <Button id="naLov" width="130px" text="Na lov" type="Ghost" press="onNav"/>
+                    <Button id="nadzornaPlosca" width="130px" text="Nadzorna plošča" type="Ghost" press="onNav"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://log" text="Odjava" type="Ghost" press="onLogOut"/>
+                </contentRight>
+            </Bar>
+        </subHeader>
+        <content>
+
+            <l:VerticalLayout>
+                <l:HorizontalLayout allowWrapping="true" id="tiles" content="{path: 'tajli>/'}">
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{tajli>ime}" subheader="{tajli>opis}" press="onTilePress">
+                        <TileContent footer="{tajli>footer}" unit="{tajli>unit}">
+                            <NumericContent value="" withMargin="false"/>
+                        </TileContent>
+                    </GenericTile>
+                </l:HorizontalLayout>
+            </l:VerticalLayout>
+
+            <!--<HBox class="hbox">
+                <GenericTile id="clani"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" ariaRole="Člani" header="Člani" subheader="Dodaj/odstrani člana" press="onTilePress">
+                    <TileContent footer="Število članov">
+                        <NumericContent value="" withMargin="false" />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile id="vloge"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" ariaRole="Vloge" header="Vloge" subheader="Dodaj/odvzemi vloge" press="onTilePress">
+                    <TileContent footer="Število vlog">
+                        <NumericContent value="" withMargin="false" />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile id="odstrel"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" ariaRole="Pregled_odstrela" header="Pregled odstrela" subheader="" press="onTilePress">
+                    <TileContent unit="%" footer="Izvršenost odstrela">
+                        <NumericContent value="" withMargin="false" />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile id="obvestila"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" ariaRole="Obvestila" header="Obvestila" subheader="Napiši obvestilo" press="onTilePress">
+                    <TileContent footer="Število obvestil">
+                        <NumericContent value="" withMargin="false" />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile id="pregledPrijaveSkode"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" ariaRole="Pregled_škode" header="Pregled škode" subheader="Preglej/potrdi škodo" press="onTilePress">
+                    <TileContent footer="Nepregledane škode">
+                        <NumericContent value="" withMargin="false" />
+                    </TileContent>
+                </GenericTile>
+            </HBox>
+            <VBox class="vbox">
+                <HBox>
+                    <GenericTile id="clani1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Člani" subheader="Dodaj/odstrani člana" press="onTilePress">
+                        <TileContent footer="Število članov">
+                            <NumericContent value="82" withMargin="false" />
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile id="vloge1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Vloge" subheader="Dodaj/odvzami vloge" press="onTilePress">
+                        <TileContent footer="Število članov">
+                            <NumericContent value="82" withMargin="false" />
+                        </TileContent>
+                    </GenericTile>
+                </HBox>
+                <HBox>
+                    <GenericTile id="odstrel1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Pregled odstrela" subheader="" press="onTilePress">
+                        <TileContent footer="Število članov">
+                            <NumericContent value="82" withMargin="false" />
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile id="obvestila1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Obvestila" subheader="Napiši obvestilo" press="onTilePress">
+                        <TileContent footer="Število članov">
+                            <NumericContent value="82" withMargin="false" />
+                        </TileContent>
+                    </GenericTile>
+                </HBox>
+            </VBox>-->
+        </content>
+        <footer>
+            <!--<OverflowToolbar id="footer">
+                <ToolbarSpacer/>
+                <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>-->
+            <Bar id="footer">
+                <contentLeft>
+                    <Button icon="sap-icon://log" type="Ghost" press="onLogOut"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                </contentMiddle>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

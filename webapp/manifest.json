@@ -1,0 +1,200 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "sap.ui.demo.wt",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}"
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sap.ui.demo.wt.view.App",
+			"type": "XML",
+			"async": true
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ui.demo.wt.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "sap.ui.demo.wt.view",
+				"controlAggregation": "pages",
+				"controlId": "app"
+			},
+			"routes": [{
+				"name": "App",
+				"pattern": "Home",
+				"target": ["App"]
+			},
+      		{
+        		"name": "Login",
+				"pattern": "Login",
+				"target": ["Login"]
+      		},
+      		{
+        		"name": "PrijavaSkode",
+				"pattern": "PrijavaSkode",
+				"target": ["PrijavaSkode"]
+      		},
+      		{
+        		"name": "LovskaDruzina",
+				"pattern": "LovskaDruzina",
+				"target": ["LovskaDruzina"]
+      		},
+      		{
+        		"name": "NaLov",
+				"pattern": "NaLov",
+				"target": ["NaLov"]
+      		},
+      		{
+        		"name": "NadzornaPlosca",
+				"pattern": "NadzornaPlosca",
+				"target": ["NadzornaPlosca"]
+      		},
+      		{
+        		"name": "Clani",
+				"pattern": "Clani",
+				"target": ["Clani"]
+      		},
+      		{
+        		"name": "Vloge",
+				"pattern": "Vloge",
+				"target": ["Vloge"]
+      		},
+      		{
+        		"name": "PregledOdstrela",
+				"pattern": "PregledOdstrela",
+				"target": ["PregledOdstrela"]
+      		},
+      		{
+        		"name": "Obvestila",
+				"pattern": "Obvestila",
+				"target": ["Obvestila"]
+      		},
+      		{
+        		"name": "PregledSkode",
+				"pattern": "PregledSkode",
+				"target": ["PregledSkode"]
+      		}
+			],
+			"targets": {
+				"App": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "App"
+				},
+        		"Login": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Login"
+				},
+        		"PrijavaSkode": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "PrijavaSkode"
+				},
+        		"LovskaDruzina": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "LovskaDruzina"
+				},
+        		"NaLov": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "NaLov"
+				},
+        		"NadzornaPlosca": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "NadzornaPlosca"
+				},
+        		"Clani": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Clani"
+				},
+        		"Vloge": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Vloge"
+				},
+        		"PregledOdstrela": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "PregledOdstrela"
+				},
+        		"Obvestila": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Obvestila"
+				},
+        		"PregledSkode": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "PregledSkode"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script src="register-sw.js"></script>
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="manifest" href="elovec.webmanifest">
+      <link rel="apple-touch-icon" href="images/bigLogo.png">
+      <meta name="theme-color" content="#00FF7F"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <title>E-lovec</title>
+      <script
+         id="sap-ui-bootstrap"
+         src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+         data-sap-ui-theme="sap_belize"
+         data-sap-ui-libs="sap.m, sap.ui.layout, sap.ui.core, sap.f"
+         data-sap-ui-compatVersion="edge"
+         data-sap-ui-async="true"
+         data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+         data-sap-ui-resourceroots='{
+            "sap.ui.demo.wt": "./"
+         }' >
+      </script>
+      <script src="js/main.js"></script>
+      <script src="js/aes.js"></script>
+      <script src="js/settings.js"></script>
+      <script src="js/login.js"></script>
+      <script src="js/indexedDB.js"></script>
+      <script src="sw.js"></script>
+      <script>
+         sap.ui.getCore().attachInit(function () {
+            new sap.m.Shell({
+               app : new sap.ui.core.ComponentContainer({
+                  name : "sap.ui.demo.wt",
+                  height : "100%",
+                  async : true
+               })
+            }).placeAt("content");
+         });
+      </script>
+   </head>
+   <body class="sapUiBody" id="content">
+   </body>
+</html>

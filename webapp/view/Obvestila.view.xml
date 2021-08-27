@@ -1,0 +1,107 @@
+<mvc:View
+   controllerName="sap.ui.demo.wt.controller.Obvestila"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:core="sap.ui.core">
+    <Page id="DomovPage">
+        <customHeader>
+            <Bar id="bar">
+                <contentLeft>
+                     <Button press="onNavBack" icon="sap-icon://nav-back"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text id="ldTitle" class="mainTitle"/>
+                </contentMiddle>
+                <contentRight>
+                    <Image class="imageMargin" src="/images/Logo.png"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <subHeader>
+            <Bar>
+                <contentMiddle>
+                    <Button id="prvaStran" width="130px" text="Prva stran" type="Ghost" press="onNav"/>
+                    <Button id="domov" width="130px" text="Domov" type="Ghost" press="onNav"/>
+                    <Button id="naLov" width="130px" text="Na lov" type="Ghost" press="onNav"/>
+                    <Button id="nadzornaPlosca" width="130px" text="Nadzorna plošča" type="Ghost" press="onNav"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://log" text="Odjava" type="Ghost" press="onLogOut"/>
+                </contentRight>
+            </Bar>
+        </subHeader>
+        <content>
+            <Panel
+                headerText="Obvestilo"
+                class="sapUiResponsiveMargin"
+                width="auto" >
+                <content>
+                    <f:Form id="dodajClanaForm"
+                        editable="true">
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="4"
+                                labelSpanL="3"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="4"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false" />
+                        </f:layout>
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement label="Naslov">
+                                        <f:fields>
+                                            <Input placeholder="Vpiši naslov obvestila" id="obvestiloTitle" submit="addNotification" />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Priimek">
+                                        <f:fields>
+                                            <TextArea placeholder="Vnesi tekst obvestila" id="obvestiloContent" growing="true" growingMaxLines="12" />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Javno obvestilo">
+                                        <f:fields>
+                                            <CheckBox id="javno" />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="">
+                                        <f:fields>
+                                            <Toolbar class="buttonAlign">
+                                                <Button width="130px" text="Objavi obvestilo" press="addNotification"/>
+                                            </Toolbar>
+                                        </f:fields>
+                                    </f:FormElement>
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+                </content>
+            </Panel>
+        </content>
+        <footer>
+            <!--<OverflowToolbar id="footer">
+                <ToolbarSpacer/>
+                <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>-->
+            <Bar id="footer">
+                <contentLeft>
+                    <Button icon="sap-icon://log" type="Ghost" press="onLogOut"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                </contentMiddle>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,27 @@
+{
+    "name": "elovec",
+    "short_name": "elovec",
+    "description": "PWA za digitalizacijo delovanja lovskih družin",
+    "icons": [
+      {
+        "src": "images/bigLogo.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
+      {
+        "src": "images/Logo.png",
+        "sizes": "60x78",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": "images/biggerLogo.png",
+        "sizes": "520x520",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "theme_color": "#00FF7F",
+    "background_color": "#00FF7F"
+  }

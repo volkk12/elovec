@@ -1,0 +1,18 @@
+<mvc:View
+   controllerName="sap.ui.demo.wt.controller.Content"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Panel
+      class="sapUiResponsiveMargin margin"
+      width="auto" >
+      <content><Text class="titleObvestila" text="Obvestila" /></content>
+   </Panel>
+   <VBox items="{/obvestila}">
+        <Panel class="panel" width="auto">
+            <content>
+                <Text class="title" text="{naslov}" />
+                <Text class="content" text="{obvestilo}" />
+            </content>
+        </Panel>
+    </VBox>
+</mvc:View>

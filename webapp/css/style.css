@@ -1,0 +1,234 @@
+.sapMShellBrandingBar {
+    height: 0px !important;
+}
+
+.sapMPageHeader::before {
+    border-top-width: 0rem !important;
+}
+#__shell0{
+    background-image: linear-gradient(#f3f3ee, #f3f3ee);
+}
+
+.sapMPageHeader{
+    height: 5rem !important;
+}
+
+.hide{
+    display: none;
+}
+
+.headerPanel{
+    margin-top: 20px !important;
+}
+
+div.headerPanel > div {
+    background-color: inherit;
+    border-bottom: none !important;
+}
+
+.titleObvestila{
+    font-size: 1.5rem !important;
+    border-bottom: none !important;
+    padding-left: 0rem !important;
+}
+
+.panel{
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.title{
+    font-size: 1.2rem !important;
+    display: block !important
+}
+
+.content{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.bar{
+    background-color: white !important;
+}
+
+.barOffline {
+    background-color: #CECACC !important;
+}    
+
+.sapMPage>section{
+    background-color: white !important;
+}
+
+.sapMPage, .sapMPage>section{
+    background-color: white !important;
+}
+
+#__page0-intHeader{
+    box-shadow: none;
+}
+
+.buttonAlign{
+    justify-content: center;
+    border-bottom: none;
+}
+
+.header{
+    font-size: 1.5rem;
+    margin-left: 5px !important;
+}
+
+.sapMITBFilterDefault{
+    margin: 5px !important;
+}
+
+.sapMITBDisabled {
+    opacity: .5;
+    cursor: default;
+    margin: 5px !important;
+    margin-top: 14px !important
+}
+
+.tabbedBar .sapMITBHead{
+    text-align:center;
+}
+
+.sapMITH{
+    background-color: white !important;
+}
+
+div.sapMDialogScrollCont{
+    text-align: center;
+    margin-top: 10px;
+}
+
+#dialogBar{
+    margin-top: 20px;
+}
+
+.error{
+    background: #fff;
+    border-color: #e52929;
+    border-width: 2px;
+}
+
+.success{
+    background: #fff;
+    border-color: #008a3b;
+    border-width: 1px;
+}
+
+.imageMarginL{
+    margin-left: 10px !important;
+}
+
+.bigButton{
+    width: auto;
+}
+
+.sapMPageFooter{
+    display: none;
+}
+
+ul.sapMListUl > li
+{
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(0,103,158,0.5);
+}
+
+.sapMRespMenuDialog .sapMLIB {
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0,103,158,0.5);
+}
+
+.mainTitle{
+    margin-top: 2rem !important;
+    font-size: 16px;
+    color: #666;
+    font-family: Arial,Helvetica,sans-serif;
+    cursor: text;
+}
+
+.panelLargeMargin{
+    margin-top: 50px !important;
+}
+
+div.sapMBarMiddle > div.sapMBarPH{
+    height: auto;
+    position: inherit !important;
+}
+
+.imageMarginM{
+    display: none;
+}
+
+.margin{
+    margin-top: 2rem !important;
+}
+
+.sapMPageSubHeader{
+    display: block;
+}
+
+.sapMPage>.sapMPageHeader+.sapMPageSubHeader+section {
+    top: 6rem;
+    margin-top: 2rem;
+}
+
+div.sapMList > ul {
+    margin-top: 2rem !important;
+}
+
+.tileLayout {
+	float: left;
+}
+
+.hbox{
+    display: flex;
+}
+
+.vbox{
+    display: none;
+}
+
+#__shell0-BG{
+    background-color: #91B69D !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .bigButton {
+        display:none;
+    }
+
+    .sapMPageFooter{
+        display: block;
+    }
+
+    .imageMarginL{
+        display: none;
+    }
+    
+    .imageMarginM{
+        display: block;
+    }
+
+    .sapMPageSubHeader{
+        display: none;
+    }
+
+    .sapMPage>.sapMPageHeader+.sapMPageSubHeader+section {
+        top: 6rem;
+        margin-top: 0rem;
+    }
+
+    .hbox{
+        display: none;
+    }
+
+    .vbox{
+        display: flex;
+        align-items: center;
+    }
+  }

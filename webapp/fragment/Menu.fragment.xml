@@ -1,0 +1,8 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+	<Menu title="Navigacija" itemSelected="onMenuAction">
+		<MenuItem class="menuItem" key="login" text="Za člane"/>
+		<MenuItem key="skoda" text="Prijava škode"/>
+	</Menu>
+</core:FragmentDefinition>

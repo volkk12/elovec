@@ -1,0 +1,100 @@
+<mvc:View
+   controllerName="sap.ui.demo.wt.controller.PrijavaSkode"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:core="sap.ui.core">
+   <Page title="Prijavi škodo" showNavButton="true" navButtonPress="onNavBack">
+        <customHeader>
+            <Bar id="bar">
+                <contentLeft>
+                     <Button press="onNavBack" icon="sap-icon://nav-back"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text class="mainTitle" text="Prijavi škodo"/>
+                </contentMiddle>
+                <contentRight>
+                    <Image class="imageMargin" src="/images/Logo.png"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <Panel
+                class="sapUiResponsiveMargin margin"
+                width="auto" >
+                <content>
+                    <f:Form id="prijavaSkode"
+                        editable="true">
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="4"
+                                labelSpanL="3"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="4"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false" />
+                        </f:layout>
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement label="Lovska družina">
+                                        <f:fields>
+                                            <SearchField
+                                                id="LD"
+                                                width="100%"
+                                                placeholder="Izberi lovsko družino"
+                                                enableSuggestions="true"
+                                                search=".onSearch"
+                                                suggest=".onSuggest"
+                                                suggestionItems="{
+                                                    path: '/LD',
+                                                    sorter: { path: 'ime_druzine' }
+                                                }">
+                                                <SuggestionItem text="{ime_druzine}"/>
+                                            </SearchField>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Ime">
+                                        <f:fields>
+                                            <Input placeholder="Vpiši svoje ime" id="ime" valueStateText="Polje Ime je obvezno" submit="prijavi" />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Priimek">
+                                        <f:fields>
+                                            <Input placeholder="Vpiši svoj priimek" id="priimek" valueStateText="Polje Priimek je obvezno" submit="prijavi"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Telefonska številka">
+                                        <f:fields>
+                                            <Input type="Tel" placeholder="Vpiši svojo telefonsko številko" id="tel" valueStateText="Polje Telefonska številka je obvezno" submit="prijavi"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Opombe">
+                                        <f:fields>
+                                            <TextArea id="opombe" placeholder="Vpiši opombe (številko parcele, lokacijo parcele, kaj je bilo poškodovano in koliko)" maxLength="471" growing="true" growingMaxLines="8" width="100%"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="">
+                                        <f:fields>
+                                            <Toolbar class="buttonAlign">
+                                                <Button width="100px" text="Prijavi" press="prijavi"/>
+                                            </Toolbar>
+                                        </f:fields>
+                                    </f:FormElement>
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

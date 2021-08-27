@@ -1,0 +1,257 @@
+<mvc:View
+    controllerName="sap.ui.demo.wt.controller.NaLov"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="NaLovPage" class="background">
+        <customHeader>
+            <Bar id="bar">
+                <contentLeft>
+                     <Button press="onNavBack" icon="sap-icon://nav-back"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text id="ldTitle" class="mainTitle"/>
+                </contentMiddle>
+                <contentRight>
+                    <Image class="imageMargin" src="/images/Logo.png"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <subHeader>
+            <Bar>
+                <contentMiddle>
+                    <Button id="prvaStran" width="130px" text="Prva stran" type="Ghost" press="onNav"/>
+                    <Button id="domov" width="130px" text="Domov" type="Ghost" press="onNav"/>
+                    <Button id="naLov" width="130px" text="Na lov" type="Ghost" press="onNav"/>
+                    <Button id="nadzornaPlosca" width="130px" text="Nadzorna plošča" type="Ghost" press="onNav"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://log" text="Odjava" type="Ghost" press="onLogOut"/>
+                </contentRight>
+            </Bar>
+        </subHeader>
+        <IconTabBar
+            id="idIconTabBarMulti"
+            expanded="{device>/isNoPhone}"
+            class="sapUiResponsiveContentPadding tabbedBar">
+            <items>
+                <IconTabFilter
+                    id="item1"
+                    key="item1"
+                    icon="sap-icon://activity-individual" 
+                    text="Vpis na lov">
+                    <f:Form 
+                        id="naLovForm"
+                        editable="true">
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="4"
+                                labelSpanL="3"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="4"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false" />
+                        </f:layout>
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement label="Začetek lova">
+                                        <f:fields>
+                                            <TimePicker
+                                                id="zacetekLova"
+                                                displayFormat="HH:mm"
+                                                valueStateText="Vnos ure je obvezen" />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement id="__lovskaPreza" label="Lovišče">
+                                        <f:fields>
+                                            <SearchField
+                                                id="lovskaPreza"
+                                                width="100%"
+                                                placeholder="Izberi lovišče"
+                                                enableSuggestions="true"
+                                                search=".onSearch"
+                                                suggest=".onSuggest"
+                                                suggestionItems="{
+                                                    path: '/lovisca',
+                                                    sorter: { path: 'naziv_lovisca' }
+                                                }">
+                                                <SuggestionItem text="{naziv_lovisca}"/>
+                                            </SearchField>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="">
+                                        <f:fields>
+                                            <Toolbar class="buttonAlign">
+                                                <Button width="100px" text="Naprej" press="naprej"/>
+                                            </Toolbar>
+                                        </f:fields>
+                                    </f:FormElement>
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+                    <Table id="pregledAktivnihLovov"
+                        inset="false"
+                        items="{
+                            path: '/aktivniLovi',
+                            sorter: {
+                                path: 'zacetek'
+                            }
+                        }">
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <content>
+                                    <Title text="Aktivni lovi" level="H2"/>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column hAlign="Center">
+                                <Text text="Ime in priimek" />
+                            </Column>
+                            <Column hAlign="Center">
+                                <Text text="Lokacija" />
+                            </Column>
+                            <Column hAlign="Center">
+                                <Text text="Začetek lova" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text
+                                        text="{ime} {priimek}"/>
+                                    <Text
+                                        text="{naziv_lovisca}" />
+                                    <Text
+                                        text="{path:'zacetek',
+                                            formatter: '.formatter.date'}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </IconTabFilter>
+                <IconTabFilter
+                    enabled="false"
+                    id="item2"
+                    key="item2"
+                    icon="sap-icon://pending"
+                    text="V teku">
+                    <HBox justifyContent="Center" alignItems="Center">
+                        <BusyIndicator text="Lov v teku..." size="2em" />
+                    </HBox>
+                    <HBox class="sapUiMediumMarginTop" justifyContent="Center" alignItems="Center">
+                        <Toolbar class="buttonAlign">
+                            <Button width="100px" id="prekliciButton" text="Prekliči" press="onPreklici"/>
+                            <Button width="100px" text="Zaključi lov" press="onZakljuci"/>
+                        </Toolbar>
+                    </HBox>
+                </IconTabFilter>
+                <IconTabFilter
+                    enabled="false"
+                    id="item3"
+                    key="item3"
+                    icon="sap-icon://complete"
+                    text="Zaključevanje">
+                    <f:Form 
+                        id="zakljuciForm"
+                        editable="true">
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="4"
+                                labelSpanL="3"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="4"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false" />
+                        </f:layout>
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement id="__strel" label="Ali ste streljali?">
+                                        <f:fields>
+                                            <RadioButtonGroup id="strel" select="handleStrel">
+                                                <RadioButton text="Da" selected="true" />
+                                                <RadioButton text="Ne" />
+                                            </RadioButtonGroup>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement id="stStrelov" label="Število strelov">
+                                        <f:fields>
+                                            <Input id="stStrelovInput" type="Number" placeholder="Vnesi število strelov" />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement id="__plen" label="Ali ste žival uplenili?">
+                                        <f:fields>
+                                            <RadioButtonGroup id="plen" select="handlePlen">
+                                                <RadioButton text="Da" selected="true" />
+                                                <RadioButton text="Ne" />
+                                            </RadioButtonGroup>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement id="plenText" label="Plen">
+                                        <f:fields>
+                                            <SearchField
+                                                id="plenTextInput"
+                                                width="100%"
+                                                placeholder="Izberi uplenjeno divjad"
+                                                enableSuggestions="true"
+                                                search=".onSearch1"
+                                                suggest=".onSuggest1"
+                                                suggestionItems="{
+                                                    path: '/divjad',
+                                                    sorter: { path: 'divjad' }
+                                                }">
+                                                <SuggestionItem text="{divjad}"/>
+                                            </SearchField>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="">
+                                        <f:fields>
+                                            <Toolbar class="buttonAlign">
+                                                <Button text="Vpiši v knjigo" press="onLovZakljucen"/>
+                                            </Toolbar>
+                                        </f:fields>
+                                    </f:FormElement>
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+
+        <footer>
+            <!--<OverflowToolbar id="footer">
+                <ToolbarSpacer/>
+                <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>-->
+            <Bar id="footer">
+                <contentLeft>
+                    <Button icon="sap-icon://log" type="Ghost" press="onLogOut"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Button id="button" text="Meni" press="onPress" ariaHasPopup="Menu"/>
+                </contentMiddle>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

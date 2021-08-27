@@ -1,0 +1,73 @@
+<mvc:View
+   controllerName="sap.ui.demo.wt.controller.Login"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:core="sap.ui.core">
+   <Page title="Prijava" showNavButton="true" icon="/images/Logo.png" navButtonPress="onNavBack">
+        <customHeader>
+            <Bar id="bar">
+                <contentLeft>
+                     <Button press="onNavBack" icon="sap-icon://nav-back"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text class="mainTitle" text="Prijava"/>
+                </contentMiddle>
+                <contentRight>
+                    <Image class="imageMargin" src="/images/Logo.png"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <Panel
+                class="sapUiResponsiveMargin margin"
+                width="auto" >
+                <content>
+                    <f:Form id="form"
+                        editable="true">
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="4"
+                                labelSpanL="3"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="4"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false" />
+                        </f:layout>
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement label="Uporabniško ime">
+                                        <f:fields>
+                                            <Input valueStateText="Napačno uporabniško ime ali geslo" placeholder="Vpiši uporabniško ime" id="user" submit="login" />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Geslo">
+                                        <f:fields>
+                                            <Input valueStateText="Napačno uporabniško ime ali geslo" type="Password" placeholder="Vpiši geslo" id="password" submit="login"/>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="">
+                                        <f:fields>
+                                            <Toolbar class="buttonAlign">
+                                                <Button width="100px" text="Prijava" press="login"/>
+                                            </Toolbar>
+                                        </f:fields>
+                                    </f:FormElement>
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
